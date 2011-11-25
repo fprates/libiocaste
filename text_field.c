@@ -22,7 +22,7 @@ struct icst_text_field *ini_text_field(struct icst_container *container,
 {
 	struct icst_text_field *tfield = malloc(sizeof(*tfield));
 
-	tfield->this = ini_object(name, tfield, ini_element(name, container));
+	tfield->this = ini_object(name, tfield, ini_element(container, name));
 
 	return tfield;
 }
