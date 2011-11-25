@@ -15,11 +15,11 @@ struct icst_text {
 	struct icst_object *this;
 };
 
-struct icst_text *ini_text(struct icst_container *container, char *name)
+struct icst_text *icst_ini_text(struct icst_container *container, char *name)
 {
 	struct icst_text *text = malloc(sizeof(*text));
 
-	text->this = ini_object(name, text, ini_element(container, name));
+	text->this = ini_object(name, text, icst_ini_element(container, name));
 
 	return text;
 }

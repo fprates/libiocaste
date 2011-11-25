@@ -5,9 +5,9 @@
  *      Author: fprates
  */
 
-#include "element.h"
 #include "object.h"
 #include <stdlib.h>
+#include <stddef.h>
 
 struct icst_element {
 	struct icst_object *this;

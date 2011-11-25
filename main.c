@@ -6,17 +6,16 @@
  */
 
 #include "iocaste.h"
-#include "element.h"
 #include <stdlib.h>
 
 struct icst_api *icst_ini(void)
 {
 	struct icst_api *api = malloc(sizeof(*api));
 
-	api->ini_container = ini_container;
-	api->ini_element = ini_element;
-	api->ini_text = ini_text;
-	api->ini_text_field = ini_text_field;
+	api->ini_container = icst_ini_container;
+	api->ini_element = icst_ini_element;
+	api->ini_text = icst_ini_text;
+	api->ini_text_field = icst_ini_text_field;
 
 	return api;
 }
