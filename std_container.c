@@ -7,7 +7,6 @@
 
 #include "iocaste.h"
 #include "object.h"
-#include "element.h"
 #include <stdlib.h>
 
 #define STD_CONTAINER "STANDARD_CONTAINER"
