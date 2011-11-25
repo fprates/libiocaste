@@ -30,7 +30,7 @@ struct icst_api {
 	struct icst_std_container *(*ini_std_container)(
 			struct icst_container *container, char *name);
 
-	struct icst_view_data *(*icst_ini_view)(char *view_name);
+	struct icst_view_data *(*ini_view)(char *view_name);
 };
 
 extern struct icst_container *icst_ini_container(struct icst_container *container,
