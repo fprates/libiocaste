@@ -13,6 +13,7 @@ struct icst_container;
 struct icst_text;
 struct icst_text_field;
 struct icst_std_container;
+struct icst_view_data;
 
 struct icst_api {
 	struct icst_container *(*ini_container)(struct icst_container *super,
@@ -30,7 +31,7 @@ struct icst_api {
 			struct icst_container *container, char *name);
 };
 
-extern struct icst_container *ini_container(struct icst_container *super,
+extern struct icst_container *ini_container(struct icst_container *container,
 		char *name);
 
 extern struct icst_element *ini_element(struct icst_container *container,
@@ -45,5 +46,7 @@ extern struct icst_text *ini_text(struct icst_container *container, char *name);
 
 extern struct icst_text_field *ini_text_field(struct icst_container *container,
 		char *name);
+
+extern struct icst_view_data *ini_view(char *view_name);
 
 #endif /* IOCASTE_H_ */
