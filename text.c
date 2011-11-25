@@ -8,7 +8,6 @@
 #include "iocaste.h"
 #include "object.h"
 #include "element.h"
-#include "container.h"
 #include <stdlib.h>
 
 #define TEXT "TEXT"

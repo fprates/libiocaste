@@ -5,7 +5,6 @@
  *      Author: fprates
  */
 
-#include "container.h"
 #include "object.h"
 #include "element.h"
 #include <stdlib.h>

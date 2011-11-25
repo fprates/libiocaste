@@ -7,9 +7,6 @@
 
 #include "iocaste.h"
 #include "element.h"
-#include "text.h"
-#include "text_field.h"
-
 #include <stdlib.h>
 
 struct icst_api *icst_ini(void)
