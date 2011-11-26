@@ -16,7 +16,7 @@ struct icst_element {
 	struct icst_container *container;
 };
 
-struct icst_element *ini_element(struct icst_container *container, char *name)
+struct icst_element *icst_ini_element(struct icst_container *container, char *name)
 {
 	struct icst_element *element = malloc(sizeof(*element));
 

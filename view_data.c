@@ -14,7 +14,7 @@ struct icst_view_data {
 	struct icst_object *this;
 };
 
-struct icst_view_data *ini_view(char *view_name)
+struct icst_view_data *icst_ini_view(char *view_name)
 {
 	struct icst_view_data *view = malloc(sizeof(*view));
 	view->this = ini_object(view_name, view, NULL);
