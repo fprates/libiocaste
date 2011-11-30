@@ -9,18 +9,18 @@
 #include "object.h"
 #include <stdlib.h>
 
-struct icst_container {
-	struct icst_object *this;
-	struct icst_element *elements[];
+struct s_container {
+	struct fac_lista *elements;
 };
 
 struct icst_container *icst_ini_container(struct icst_container *super,
 		char *name)
 {
-	struct icst_container *container_ = malloc(sizeof(*container_));
+	struct icst_container *container = malloc(sizeof(*container));
+	struct s_container *container_ = malloc(sizeof(*container_));
 
-	container_->this = ini_object(name, container_,
-			icst_ini_element(super, name));
+	container->this = ini_object(name, container_,
+			icst_ini_element(super, name)->this);
 
-	return container_;
+	return container;
 }
