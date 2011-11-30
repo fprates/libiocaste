@@ -18,6 +18,8 @@ struct icst_api *icst_ini(void)
 	api->ini_text_field = icst_ini_text_field;
 	api->ini_program = icst_ini_program;
 	api->ini_view = icst_ini_view;
+	api->super = icst_super;
+	api->view_add = icst_view_add;
 
 	return api;
 }
