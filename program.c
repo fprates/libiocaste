@@ -11,8 +11,7 @@
 #include <stddef.h>
 #include <faclib.h>
 
-struct icst_program {
-	struct icst_object *this;
+struct s_program {
 	char *name;
 	char *prog_path;
 	void *prog_lib;
@@ -23,27 +22,34 @@ struct icst_program *icst_ini_program(char *name, char *prog_path,
 		char *icst_path)
 {
 	struct icst_program *program;
+	struct s_program *program_;
 	void *lib = fac_ld_lib(prog_path);
 
 	if (lib == NULL)
 		return NULL;
 
 	program = malloc(sizeof(*program));
-	program->this = ini_object(name, program, NULL);
-	program->name = name;
-	program->prog_path = prog_path;
-	program->prog_lib = lib;
-	program->icst_path = icst_path;
+	program_ = malloc(sizeof(*program_));
+	program->this = ini_object(name, program_, NULL);
+
+	program_->name = name;
+	program_->prog_path = prog_path;
+	program_->prog_lib = lib;
+	program_->icst_path = icst_path;
 
 	return program;
 }
 
 char *ret_iocaste_path(struct icst_program *program)
 {
-	return program->icst_path;
+	struct s_program *program_ = ret_extension(program->this);
+
+	return program_->icst_path;
 }
 
 void *ret_program_lib(struct icst_program *program)
 {
-	return program->prog_lib;
+	struct s_program *program_ = ret_extension(program->this);
+
+	return program_->prog_lib;
 }
