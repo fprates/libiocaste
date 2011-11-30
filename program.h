@@ -10,8 +10,8 @@
 
 #include "iocaste.h"
 
-char *ret_iocaste_path(struct icst_program *program);
+char *ret_iocaste_path(struct icst_object *program);
 
-void *ret_program_lib(struct icst_program *program);
+void *ret_program_lib(struct icst_object *program);
 
 #endif /* PROGRAM_H_ */

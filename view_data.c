@@ -16,21 +16,20 @@ struct s_view_data {
 	struct fac_lista *containers;
 };
 
-struct icst_view_data *icst_ini_view(struct icst_program *program,
+struct icst_object *icst_ini_view(struct icst_object *program,
 		char *view_name)
 {
-	struct icst_view_data *view;
+	struct icst_object *view;
 	struct s_view_data *view_;
-	struct icst_view_data *(*init_view)(struct icst_view_data *,
-			struct icst_program *, void *);
+	struct icst_object *(*init_view)(struct icst_object *, struct icst_object *,
+			void *);
 	void *lib = fac_ld_lib(ret_iocaste_path(program));
 
 	if (lib == NULL)
 		return NULL;
 
-	view = malloc(sizeof(*view));
 	view_ = malloc(sizeof(*view_));
-	view->this = ini_object(view_name, view_, NULL);
+	view = ini_object(view_name, view_, NULL);
 	view_->containers = fac_ini_lista();
 
 	init_view = fac_ret_proc_lib(ret_program_lib(program), "init_view");
@@ -39,10 +38,9 @@ struct icst_view_data *icst_ini_view(struct icst_program *program,
 	return view;
 }
 
-void icst_view_add(struct icst_view_data *view,
-		struct icst_container *container)
+void icst_view_add(struct icst_object *view, struct icst_object *container)
 {
-	struct s_view_data *view_ = ret_extension(view->this);
+	struct s_view_data *view_ = ret_extension(view);
 
 	fac_inc_item(view_->containers, container);
 }

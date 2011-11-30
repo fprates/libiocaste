@@ -18,19 +18,18 @@ struct s_program {
 	char *icst_path;
 };
 
-struct icst_program *icst_ini_program(char *name, char *prog_path,
+struct icst_object *icst_ini_program(char *name, char *prog_path,
 		char *icst_path)
 {
-	struct icst_program *program;
+	struct icst_object *program;
 	struct s_program *program_;
 	void *lib = fac_ld_lib(prog_path);
 
 	if (lib == NULL)
 		return NULL;
 
-	program = malloc(sizeof(*program));
 	program_ = malloc(sizeof(*program_));
-	program->this = ini_object(name, program_, NULL);
+	program = ini_object(name, program_, NULL);
 
 	program_->name = name;
 	program_->prog_path = prog_path;
@@ -40,16 +39,16 @@ struct icst_program *icst_ini_program(char *name, char *prog_path,
 	return program;
 }
 
-char *ret_iocaste_path(struct icst_program *program)
+char *ret_iocaste_path(struct icst_object *program)
 {
-	struct s_program *program_ = ret_extension(program->this);
+	struct s_program *program_ = ret_extension(program);
 
 	return program_->icst_path;
 }
 
-void *ret_program_lib(struct icst_program *program)
+void *ret_program_lib(struct icst_object *program)
 {
-	struct s_program *program_ = ret_extension(program->this);
+	struct s_program *program_ = ret_extension(program);
 
 	return program_->prog_lib;
 }

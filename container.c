@@ -13,14 +13,12 @@ struct s_container {
 	struct fac_lista *elements;
 };
 
-struct icst_container *icst_ini_container(struct icst_container *super,
+struct icst_object *icst_ini_container(struct icst_object *super,
 		char *name)
 {
-	struct icst_container *container = malloc(sizeof(*container));
 	struct s_container *container_ = malloc(sizeof(*container_));
-
-	container->this = ini_object(name, container_,
-			icst_ini_element(super, name)->this);
+	struct icst_object *container = ini_object(name, container_,
+			icst_ini_element(super, name));
 
 	return container;
 }

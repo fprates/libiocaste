@@ -9,25 +9,26 @@
 #include <stdlib.h>
 #include <stddef.h>
 
-struct icst_element {
-	struct icst_object *this;
+struct s_element {
 	char *type;
 	int iscontainable;
-	struct icst_container *container;
+	struct icst_object *container;
 };
 
-struct icst_element *icst_ini_element(struct icst_container *container, char *name)
+struct icst_object *icst_ini_element(struct icst_object *container, char *name)
 {
-	struct icst_element *element = malloc(sizeof(*element));
+	struct s_element *element_ = malloc(sizeof(*element_));
+	struct icst_object *element = ini_object(name, element_, NULL);
 
-	element->this = ini_object(name, element, NULL);
-	element->container = container;
-	element->iscontainable = 0;
+	element_->container = container;
+	element_->iscontainable = 0;
 
 	return element;
 }
 
-void def_element_type(struct icst_element *element, char *type)
+void def_element_type(struct icst_object *element, char *type)
 {
-	element->type = type;
+	struct s_element *element_ = ret_extension(element);
+
+	element_->type = type;
 }

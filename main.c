@@ -20,6 +20,7 @@ struct icst_api *icst_ini(void)
 	api->ini_view = icst_ini_view;
 	api->super = icst_super;
 	api->view_add = icst_view_add;
+	api->ini_std_container = icst_ini_std_container;
 
 	return api;
 }
