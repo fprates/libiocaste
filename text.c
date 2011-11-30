@@ -11,15 +11,16 @@
 
 #define TEXT "TEXT"
 
-struct icst_text {
-	struct icst_object *this;
+struct s_text {
+
 };
 
 struct icst_text *icst_ini_text(struct icst_container *container, char *name)
 {
 	struct icst_text *text = malloc(sizeof(*text));
+	struct s_text *text_ = malloc(sizeof(*text_));
 
-	text->this = ini_object(name, text, icst_ini_element(container, name));
+	text->this = ini_object(name, text_, icst_ini_element(container, name));
 
 	return text;
 }
