@@ -20,20 +20,16 @@ struct icst_object *icst_ini_view(struct icst_object *program,
 		char *view_name)
 {
 	struct icst_object *view;
-	struct s_view_data *view_;
 	struct icst_object *(*init_view)(struct icst_object *, struct icst_object *,
 			void *);
-	void *lib = fac_ld_lib(ret_iocaste_path(program));
+	struct s_view_data *view_ = malloc(sizeof(*view_));
 
-	if (lib == NULL)
-		return NULL;
-
-	view_ = malloc(sizeof(*view_));
 	view = ini_object(view_name, view_, NULL);
 	view_->containers = fac_ini_lista();
 
 	init_view = fac_ret_proc_lib(ret_program_lib(program), "init_view");
-	init_view(view, program, lib);
+
+	init_view(view, program, ret_iocaste_path(program));
 
 	return view;
 }

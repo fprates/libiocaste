@@ -38,6 +38,13 @@ struct icst_api {
 	struct icst_object *(*super)(struct icst_object *object);
 };
 
+struct icst_view_param {
+	struct icst_object *view;
+	struct icst_object *program;
+	char *icst_path;
+	struct icst_api *api;
+};
+
 extern int icst_get_container_count(struct icst_object *view);
 
 extern struct icst_object *icst_ini_container(struct icst_object *container,
