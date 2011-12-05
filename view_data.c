@@ -19,19 +19,19 @@ struct s_view_data {
 struct icst_object *icst_ini_view(struct icst_object *program,
 		char *view_name)
 {
-	struct icst_object *view;
-	struct icst_object *(*init_view)(struct icst_object *, struct icst_object *,
-			void *);
+	struct icst_object *(*init_view)(struct icst_view_param);
+	struct icst_view_param view_param;
 	struct s_view_data *view_ = malloc(sizeof(*view_));
 
-	view = ini_object(view_name, view_, NULL);
+	view_param.program = program;
+	view_param.view = ini_object(view_name, view_, NULL);
+	view_param.icst_path = ret_iocaste_path(program);
+
 	view_->containers = fac_ini_lista();
-
 	init_view = fac_ret_proc_lib(ret_program_lib(program), "init_view");
+	init_view(view_param);
 
-	init_view(view, program, ret_iocaste_path(program));
-
-	return view;
+	return view_param.view;
 }
 
 void icst_view_add(struct icst_object *view, struct icst_object *container)
