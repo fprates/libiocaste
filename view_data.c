@@ -48,7 +48,7 @@ struct fac_iterador *icst_get_container_iterator(
 {
 	struct s_view_data *view_ = ret_extension(view);
 
-	return fac_ini_iterator(view_->containers);
+	return fac_ini_iterador(view_->containers);
 }
 
 char *icst_get_view_title(struct icst_object *view)
