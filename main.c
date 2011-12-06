@@ -21,7 +21,9 @@ struct icst_api *icst_ini(void)
 	api->super = icst_super;
 	api->view_add = icst_view_add;
 	api->ini_std_container = icst_ini_std_container;
-	api->icst_get_container_count = icst_get_container_count;
+	api->get_container_count = icst_get_container_count;
+	api->get_view_title = icst_get_view_title;
+	api->set_view_title = icst_set_view_title;
 
 	return api;
 }

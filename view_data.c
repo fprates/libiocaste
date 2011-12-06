@@ -13,6 +13,7 @@
 #include <faclib.h>
 
 struct s_view_data {
+	char *title;
 	struct fac_lista *containers;
 };
 
@@ -47,4 +48,19 @@ int icst_get_container_count(struct icst_object *view)
 	struct s_view_data *view_ = ret_extension(view);
 
 	return fac_qt_itens(view_->containers);
+}
+
+char *icst_get_view_title(struct icst_object *view)
+{
+	struct s_view_data *view_ = ret_extension(view);
+
+	return view_->title;
+}
+
+void icst_set_view_title(struct icst_object *view, char *title)
+{
+	struct s_view_data *view_ = ret_extension(view);
+
+	view_->title = title;
+
 }

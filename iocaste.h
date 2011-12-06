@@ -11,7 +11,9 @@
 struct icst_object;
 
 struct icst_api {
-	int (*icst_get_container_count)(struct icst_object *view);
+	int (*get_container_count)(struct icst_object *view);
+
+	char *(*get_view_title)(struct icst_object *view);
 
 	struct icst_object *(*ini_container)(struct icst_object *container,
 			char *name);
@@ -34,6 +36,8 @@ struct icst_api {
 			char *view_name);
 
 	void (*view_add)(struct icst_object *view, struct icst_object *container);
+
+	void (*set_view_title)(struct icst_object *view, char *title);
 
 	struct icst_object *(*super)(struct icst_object *object);
 };
@@ -72,6 +76,10 @@ extern struct icst_object *icst_ini_view(struct icst_object *program,
 
 extern void icst_view_add(struct icst_object *view,
 		struct icst_object *container);
+
+extern char *icst_get_view_title(struct icst_object *view);
+
+extern void icst_set_view_title(struct icst_object *view, char *title);
 
 extern struct icst_object *icst_super(struct icst_object *object);
 
