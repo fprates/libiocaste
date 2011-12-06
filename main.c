@@ -24,6 +24,7 @@ struct icst_api *icst_ini(void)
 	api->get_container_iterator = icst_get_container_iterator;
 	api->get_view_title = icst_get_view_title;
 	api->set_view_title = icst_set_view_title;
+	api->has_container = icst_has_container;
 
 	return api;
 }

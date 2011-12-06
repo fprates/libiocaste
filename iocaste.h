@@ -17,6 +17,8 @@ struct icst_api {
 
 	char *(*get_view_title)(struct icst_object *view);
 
+	int (*has_container)(struct fac_iterador *itc);
+
 	struct icst_object *(*ini_container)(struct icst_object *container,
 			char *name);
 
@@ -53,6 +55,8 @@ struct icst_view_param {
 
 extern struct fac_iterador *icst_get_container_iterator(
 		struct icst_object *view);
+
+extern int icst_has_container(struct fac_iterador *itc);
 
 extern struct icst_object *icst_ini_container(struct icst_object *container,
 		char *name);

@@ -65,3 +65,8 @@ void icst_set_view_title(struct icst_object *view, char *title)
 	view_->title = title;
 
 }
+
+int icst_has_container(struct fac_iterador *itc)
+{
+	return fac_existe_prox(itc);
+}
