@@ -43,11 +43,12 @@ void icst_view_add(struct icst_object *view, struct icst_object *container)
 	fac_inc_item(view_->containers, container);
 }
 
-int icst_get_container_count(struct icst_object *view)
+struct fac_iterador *icst_get_container_iterator(
+		struct icst_object *view)
 {
 	struct s_view_data *view_ = ret_extension(view);
 
-	return fac_qt_itens(view_->containers);
+	return fac_ini_iterator(view_->containers);
 }
 
 char *icst_get_view_title(struct icst_object *view)

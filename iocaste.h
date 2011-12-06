@@ -8,10 +8,12 @@
 #ifndef IOCASTE_H_
 #define IOCASTE_H_
 
+#include <faclib.h>
+
 struct icst_object;
 
 struct icst_api {
-	int (*get_container_count)(struct icst_object *view);
+    struct fac_iterador *(*get_container_iterator)(struct icst_object *view);
 
 	char *(*get_view_title)(struct icst_object *view);
 
@@ -49,7 +51,8 @@ struct icst_view_param {
 	struct icst_api *api;
 };
 
-extern int icst_get_container_count(struct icst_object *view);
+extern struct fac_iterador *icst_get_container_iterator(
+		struct icst_object *view);
 
 extern struct icst_object *icst_ini_container(struct icst_object *container,
 		char *name);
