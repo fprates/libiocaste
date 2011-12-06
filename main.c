@@ -25,7 +25,6 @@ struct icst_api *icst_ini(void)
 	api->ini_text = icst_ini_text;
 	api->ini_text_field = icst_ini_text_field;
 	api->ini_view = icst_ini_view;
-	api->set_element_type = icst_set_element_type;
 	api->set_view_title = icst_set_view_title;
 	api->super = icst_super;
 	api->view_add = icst_view_add;

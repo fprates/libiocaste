@@ -6,6 +6,7 @@
  */
 
 #include "object.h"
+#include "element.h"
 #include <stdlib.h>
 #include <stddef.h>
 
@@ -22,15 +23,9 @@ struct icst_object *icst_ini_element(struct icst_object *container, char *name)
 
 	element_->container = container;
 	element_->iscontainable = 0;
+	element_->type = NULL;
 
 	return element;
-}
-
-void def_element_type(struct icst_object *element, char *type)
-{
-	struct s_element *element_ = ret_extension(element);
-
-	element_->type = type;
 }
 
 char *icst_get_element_type(struct icst_object *element)
@@ -40,7 +35,7 @@ char *icst_get_element_type(struct icst_object *element)
 	return element_->type;
 }
 
-extern void icst_set_element_type(struct icst_object *element, char *type)
+extern void set_element_type(struct icst_object *element, char *type)
 {
 	struct s_element *element_ = ret_extension(element);
 

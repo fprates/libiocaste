@@ -47,8 +47,6 @@ struct icst_api {
 
 	void (*view_add)(struct icst_object *view, struct icst_object *container);
 
-	void (*set_element_type)(struct icst_object *element, char *type);
-
 	void (*set_view_title)(struct icst_object *view, char *title);
 
 	struct icst_object *(*super)(struct icst_object *object);
@@ -99,8 +97,6 @@ extern void icst_view_add(struct icst_object *view,
 		struct icst_object *container);
 
 extern char *icst_get_view_title(struct icst_object *view);
-
-extern void icst_set_element_type(struct icst_object *element, char *type);
 
 extern void icst_set_view_title(struct icst_object *view, char *title);
 
