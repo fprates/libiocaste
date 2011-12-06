@@ -36,3 +36,8 @@ void *ret_extension(struct icst_object *object)
 {
 	return object->this;
 }
+
+char *icst_get_object_name(struct icst_object *object)
+{
+	return object->name;
+}

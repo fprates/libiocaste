@@ -32,3 +32,17 @@ void def_element_type(struct icst_object *element, char *type)
 
 	element_->type = type;
 }
+
+char *icst_get_element_type(struct icst_object *element)
+{
+	struct s_element *element_ = ret_extension(element);
+
+	return element_->type;
+}
+
+extern void icst_set_element_type(struct icst_object *element, char *type)
+{
+	struct s_element *element_ = ret_extension(element);
+
+	element_->type = type;
+}

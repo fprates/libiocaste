@@ -17,6 +17,10 @@ struct icst_api {
 
     struct fac_iterador *(*get_container_iterator)(struct icst_object *view);
 
+	char *(*get_element_type)(struct icst_object *element);
+
+	char *(*get_object_name)(struct icst_object *element);
+
 	char *(*get_view_title)(struct icst_object *view);
 
 	int (*has_container)(struct fac_iterador *itc);
@@ -43,6 +47,8 @@ struct icst_api {
 
 	void (*view_add)(struct icst_object *view, struct icst_object *container);
 
+	void (*set_element_type)(struct icst_object *element, char *type);
+
 	void (*set_view_title)(struct icst_object *view, char *title);
 
 	struct icst_object *(*super)(struct icst_object *object);
@@ -59,6 +65,10 @@ extern struct icst_object *icst_get_container(struct fac_iterador *itc);
 
 extern struct fac_iterador *icst_get_container_iterator(
 		struct icst_object *view);
+
+extern char *icst_get_element_type(struct icst_object *element);
+
+extern char *icst_get_object_name(struct icst_object *object);
 
 extern int icst_has_container(struct fac_iterador *itc);
 
@@ -89,6 +99,8 @@ extern void icst_view_add(struct icst_object *view,
 		struct icst_object *container);
 
 extern char *icst_get_view_title(struct icst_object *view);
+
+extern void icst_set_element_type(struct icst_object *element, char *type);
 
 extern void icst_set_view_title(struct icst_object *view, char *title);
 
