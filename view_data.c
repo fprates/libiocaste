@@ -29,6 +29,7 @@ struct icst_object *icst_ini_view(struct icst_object *program,
 	view_param.icst_path = ret_iocaste_path(program);
 	view_param.api = icst_ini();
 
+	view_->title = view_name;
 	view_->containers = fac_ini_lista();
 	init_view = fac_ret_proc_lib(ret_program_lib(program), "init_view");
 	init_view(view_param);
