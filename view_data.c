@@ -70,3 +70,8 @@ int icst_has_container(struct fac_iterador *itc)
 {
 	return fac_existe_prox(itc);
 }
+
+struct icst_object *icst_get_container(struct fac_iterador *itc)
+{
+	return fac_proximo(itc);
+}
